@@ -1,101 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Posts from './components/Posts'
+import Header from './components/Header'
+import { Route, Routes } from 'react-router-dom'
+import Layout from './components/Layout'
+import HomePage from './pages/HomePage'
+import LoginPage from './pages/LoginPage'
+import RegisterPage from './pages/RegisterPage'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+//    The index attribute makes this route the root (/) route.
+// Parent route (Layout) wraps child routes.
   return (
-    <main>
-      <header>
-        <a href='' className='logo'>MyBlog</a>
-        <nav>
-          <a href=''>Login</a>
-          <a href=''>Register</a>
-        </nav>
-      </header>
-      <div className='post'>
-        <div className='image'>
-          <img src='https://techcrunch.com/wp-content/uploads/2024/02/GettyImages-1783835425-crop-e1717409949317.jpg?resize=1280,721' />
-        </div>
-        <div className='texts'>
-          <h2>New code in Spotify’s app references the long-awaited ‘lossless’ tier</h2>
-          <p className="info">
-            <a className="author">Steve Jobs</a>
-            <time>2025-06-19 05:15</time>
-          </p>
-          <p className='summary'>After numerous leaks and teases from company execs, we know better than to
-            start hoping that the long-delayed service could be finally nearing arrival.
-            But newly added references in the music app’s code suggest the lossless
-            service is at least still under development and could even be getting closer to launch.</p>
-        </div>
-      </div>
-      <div className='post'>
-        <div className='image'>
-          <img src='https://techcrunch.com/wp-content/uploads/2024/02/GettyImages-1783835425-crop-e1717409949317.jpg?resize=1280,721' />
-        </div>
-        <div className='texts'>
-          <h2>New code in Spotify’s app references the long-awaited ‘lossless’ tier</h2>
-          <p className="info">
-            <a className="author">Steve Jobs</a>
-            <time>2025-06-19 05:15</time>
-          </p>
-          <p className='summary'>After numerous leaks and teases from company execs, we know better than to
-            start hoping that the long-delayed service could be finally nearing arrival.
-            But newly added references in the music app’s code suggest the lossless
-            service is at least still under development and could even be getting closer to launch.</p>
-        </div>
-      </div>
-      <div className='post'>
-        <div className='image'>
-          <img src='https://techcrunch.com/wp-content/uploads/2024/02/GettyImages-1783835425-crop-e1717409949317.jpg?resize=1280,721' />
-        </div>
-        <div className='texts'>
-          <h2>New code in Spotify’s app references the long-awaited ‘lossless’ tier</h2>
-          <p className="info">
-            <a className="author">Steve Jobs</a>
-            <time>2025-06-19 05:15</time>
-          </p>
-          <p className='summary'>After numerous leaks and teases from company execs, we know better than to
-            start hoping that the long-delayed service could be finally nearing arrival.
-            But newly added references in the music app’s code suggest the lossless
-            service is at least still under development and could even be getting closer to launch.</p>
-        </div>
-      </div>
-      <div className='post'>
-        <div className='image'>
-          <img src='https://techcrunch.com/wp-content/uploads/2024/02/GettyImages-1783835425-crop-e1717409949317.jpg?resize=1280,721' />
-        </div>
-        <div className='texts'>
-          <h2>New code in Spotify’s app references the long-awaited ‘lossless’ tier</h2>
-          <p className="info">
-            <a className="author">Steve Jobs</a>
-            <time>2025-06-19 05:15</time>
-          </p>
-          <p className='summary'>After numerous leaks and teases from company execs, we know better than to
-            start hoping that the long-delayed service could be finally nearing arrival.
-            But newly added references in the music app’s code suggest the lossless
-            service is at least still under development and could even be getting closer to launch.</p>
-        </div>
-      </div>
-      <div className='post'>
-        <div className='image'>
-          <img src='https://techcrunch.com/wp-content/uploads/2024/02/GettyImages-1783835425-crop-e1717409949317.jpg?resize=1280,721' />
-        </div>
-        <div className='texts'>
-          <h2>New code in Spotify’s app references the long-awaited ‘lossless’ tier</h2>
-          <p className="info">
-            <a className="author">Steve Jobs</a>
-            <time>2025-06-19 05:15</time>
-          </p>
-          <p className='summary'>After numerous leaks and teases from company execs, we know better than to
-            start hoping that the long-delayed service could be finally nearing arrival.
-            But newly added references in the music app’s code suggest the lossless
-            service is at least still under development and could even be getting closer to launch.</p>
-        </div>
-      </div>
-    </main>
+    <Routes>
+    <Route path='/' element={<Layout/>}>
+     <Route index element={<HomePage/>}/>
+      <Route path='/login' element={<LoginPage/>}/>
+      <Route path='/register' element={<RegisterPage/>}/>
+    </Route>
+    </Routes>
   )
 }
 
