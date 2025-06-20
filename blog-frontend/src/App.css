@@ -81,6 +81,7 @@ form.login, form.register{
   margin: 0 auto;
 }
 
+
 /* Inputs naturally stretch to 100% width of their container */
 input{
   display: block;
@@ -102,3 +103,4 @@ button{
   border-radius: 5px;
   padding: 5px;
 }
+
