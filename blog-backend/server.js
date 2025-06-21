@@ -12,7 +12,7 @@ connectDB();
 
 app.use(express.json());
 
-app.use('/api',UserRouter)
+app.use('/api',UserRouter);
 
 app.use('/test',(req,res)=>{
     try{
