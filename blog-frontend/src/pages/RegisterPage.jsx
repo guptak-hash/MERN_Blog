@@ -13,11 +13,23 @@ const RegisterPage = () => {
   const hasNoSpaces = !password.includes(' ');
   const isPasswordLongEnough = password.length >= 6;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (isValidEmail && hasNoSpaces && isPasswordLongEnough && passwordsMatch) {
       console.log('Registration successful:', { email, password });
       // Submit to backend here
+      try {
+        await fetch('http://localhost:8000/api/signup', {
+          method: 'POST',
+          body: JSON.stringify({ email, password }),
+          headers: { 'Content-Type': 'application/json' }
+        })
+      } catch (err) {
+        alert('Registration failed')
+      }
+      setEmail('');
+      setPassword('');
+      setConfirmPassword('');
     } else {
       alert('Check email or password format')
     }
