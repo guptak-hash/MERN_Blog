@@ -3,16 +3,22 @@ const express = require('express');
 const cors=require('cors');
 const UserRouter = require('./routes/user.routes');
 const connectDB = require('./config/db');
+const cookieParser = require('cookie-parser');
+const BlogRouter = require('./routes/blog.routes');
 
 const app = express();
 
-app.use(cors());
+app.use(cors({credentials:true,origin:'http://localhost:5173'}));
 
 connectDB();
+
+app.use(cookieParser())
 
 app.use(express.json());
 
 app.use('/api',UserRouter);
+
+app.use('/api',BlogRouter)
 
 app.use('/test',(req,res)=>{
     try{
@@ -29,4 +35,3 @@ app.listen(PORT, () => {
 })
 
 
-// mongodb+srv://guptakishan1123:3krRs6sF3rKKOHVI@cluster0.kkqlxqz.mongodb.net/todoDB
