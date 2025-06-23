@@ -19,11 +19,16 @@ const RegisterPage = () => {
       console.log('Registration successful:', { email, password });
       // Submit to backend here
       try {
-        await fetch('http://localhost:8000/api/signup', {
+       const response= await fetch('http://localhost:8000/api/signup', {
           method: 'POST',
           body: JSON.stringify({ email, password }),
           headers: { 'Content-Type': 'application/json' }
         })
+        if(response.status===200){
+          alert('Registration Success')
+        }else{
+          alert('Registration Failed')
+        }
       } catch (err) {
         alert('Registration failed')
       }
