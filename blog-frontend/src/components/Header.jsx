@@ -22,16 +22,7 @@ function Header() {
 fetchUserDetail();
   }, [])
 
-  // .then(response => {
-  //     response.json().then(userInfo => {
-  //       // console.log('userInfo >> ',userInfo)
-  //       // const atIndex = userInfo?.email.indexOf("@");
-  //       // const userName = userInfo?.email.slice(0, atIndex);
-  //       setUserInfo(userInfo)
-  //     })
-  //   }).catch(err=>{
-  //     console.log(err)
-  //   })
+ 
   function logout() {
     fetch('http://localhost:8000/api/logout', {
       method: 'POST',

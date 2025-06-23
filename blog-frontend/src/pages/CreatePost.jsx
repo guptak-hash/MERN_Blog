@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css'
+import { Navigate } from 'react-router-dom';
 
 function CreatePost() {
     const [title,setTitle]=useState('');
     const [summary,setSummary]=useState('');
     const [content,setContent]=useState('');
 const [files,setFiles]=useState('')
+const [redirect,setRedirect]=useState(false)
 
 async function createNewPost(e){
     e.preventDefault();
@@ -17,10 +19,16 @@ async function createNewPost(e){
     data.set('file',files[0])
     const response=await fetch('http://localhost:8000/api/post',{
         method: 'POST',
-        body: data
+        body: data,
+        credentials: 'include'
     })
-    console.log(await response.json())
-// console.log(files)
+    if(response.status===200){
+        setRedirect(true)
+    }
+}
+
+if(redirect){
+    return <Navigate to={'/'}/>
 }
   return (
     <form onSubmit={createNewPost}>
