@@ -8,7 +8,7 @@ const BlogRouter = require('./routes/blog.routes');
 
 const app = express();
 
-app.use(cors({credentials:true,origin:'http://localhost:5173'}));
+app.use(cors({credentials:true,origin:'https://mern-blog-frontend-6gkr.onrender.com'}));
 
 connectDB();
 
