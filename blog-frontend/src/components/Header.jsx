@@ -37,7 +37,8 @@ function Header() {
   }
   
   const username = userInfo?.email;
-  
+  //  const atIndex = postInfo.author.email.indexOf("@");
+  // const username = postInfo.author.email.slice(0, atIndex);
   return (
     <header>
       <Link to='/' className='logo'>Blogmint</Link>
@@ -45,6 +46,7 @@ function Header() {
         {
           username && (
             <>
+            <span>Hello, {username}</span>
               <Link to='/create'>Create new post</Link>
               <a onClick={logout}>Logout</a>
             </>
