@@ -10,7 +10,7 @@ function Header() {
   useEffect(() => {
     const fetchUserDetail = async () => {
       try {
-        const response = await fetch('http://localhost:8000/api/profile', {
+        const response = await fetch('https://mern-blog-backend-tixg.onrender.com/profile', {
           method: 'GET',
           credentials: 'include'
         })
@@ -25,7 +25,7 @@ function Header() {
 
 
   async function logout() {
-    const response = await fetch('http://localhost:8000/api/logout', {
+    const response = await fetch('https://mern-blog-backend-tixg.onrender.com/logout', {
       method: 'POST',
       credentials: 'include'
     })

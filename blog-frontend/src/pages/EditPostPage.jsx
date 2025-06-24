@@ -14,7 +14,7 @@ function EditPostPage() {
     const [redirect, setRedirect] = useState(false)
 
     useEffect(() => {
-        fetch('http://localhost:8000/api/post/' + id)
+        fetch('https://mern-blog-backend-tixg.onrender.com/' + id)
             .then(response => {
                 response.json().then(postInfo => {
                     console.log('postInfo >> ', postInfo)

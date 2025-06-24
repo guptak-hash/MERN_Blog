@@ -11,7 +11,7 @@ function PostPage() {
     const { id } = useParams();
     // console.log('userInfo >> ', userInfo)
     useEffect(() => {
-        fetch(`http://localhost:8000/api/post/${id}`)
+        fetch(`https://mern-blog-backend-tixg.onrender.com/${id}`)
             .then(response => {
                 response.json().then(postInfo => {
                     setPostInfo(postInfo);
@@ -44,7 +44,7 @@ function PostPage() {
     
             )}
             <div className="image">
-                <img src={`http://localhost:8000/${postInfo.cover}`} alt="" />
+                <img src={`https://mern-blog-backend-tixg.onrender.com/${postInfo.cover}`} alt="" />
             </div>
             <div dangerouslySetInnerHTML={{ __html: postInfo.content }} />
             
