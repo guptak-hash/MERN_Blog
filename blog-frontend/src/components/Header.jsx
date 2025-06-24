@@ -30,7 +30,7 @@ fetchUserDetail();
     })
     setUserInfo(null)
   }
-  console.log('userInfo >> ', userInfo)
+  // console.log('userInfo >> ', userInfo)
   const username = userInfo?.email;
 
   return (

@@ -3,6 +3,10 @@
   box-sizing: border-box;
 }
 
+a{
+  cursor: pointer;
+}
+
 body{
   color: #222;
 }
@@ -107,6 +111,7 @@ input{
 }
 /* Potential invisible margins/padding */
 button{
+  cursor: pointer;
   width: 100%;
   display: block;
   background-color: #555;
@@ -129,6 +134,7 @@ div.post-page div.image{
 div.post-page div.image img{
   object-fit: cover;
   object-position: center center;
+  width: 100%;
 }
 
 div.post-page a{

@@ -9,7 +9,7 @@ function PostPage() {
     const [postInfo, setPostInfo] = useState(null);
     const { userInfo } = useContext(UserContext)
     const { id } = useParams();
-    console.log('userInfo >> ', userInfo)
+    // console.log('userInfo >> ', userInfo)
     useEffect(() => {
         fetch(`http://localhost:8000/api/post/${id}`)
             .then(response => {
@@ -19,13 +19,14 @@ function PostPage() {
             })
     }, []);
     // console.log('postInfo >> ',postInfo)
+    // console.log('userInfo >> ',userInfo)
     if (!postInfo) return '';
     return (
         <div className="post-page">
             <h1>{postInfo.title}</h1>
             <time>{formatISO9075(new Date(postInfo.createdAt))}</time>
             <div className="author">By {postInfo.author.email}</div>
-            {userInfo.userId === postInfo.author._id && (
+            {userInfo.id === postInfo.author._id && (
                 <div className="edit-row">
                     <Link className="edit-btn" to={`/edit/${postInfo._id}`}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
