@@ -38,7 +38,21 @@ BlogRouter.get('/post', async (req, res) => {
     const { token } = req.cookies;
     try {
         const decoded = await jwt.verify(token, process.env.SECRET_KEY);
-        res.status(200).json(await BlogModel.find().populate('author',['email']))
+        res.status(200).json(await BlogModel.find()
+            .populate('author', ['email'])
+            .sort({ createdAt: -1 }))
+    } catch (err) {
+        console.log(err.message);
+        res.status(400).json(err)
+    }
+});
+
+// get blog by id
+BlogRouter.get('/post/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const postDoc = await BlogModel.findById(id).populate('author', ['email'])
+        res.json(postDoc)
     } catch (err) {
         console.log(err.message);
         res.status(400).json(err)
