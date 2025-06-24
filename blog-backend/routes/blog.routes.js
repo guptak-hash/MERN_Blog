@@ -57,6 +57,40 @@ BlogRouter.get('/post/:id', async (req, res) => {
         console.log(err.message);
         res.status(400).json(err)
     }
+});
+
+// edit post
+BlogRouter.put('/post', uploadMiddleware.single('file'), async (req, res) => {
+    try {
+        const { token } = req.cookies;
+        const {id, title, summary, content } = req.body;
+        let newPath = null;
+        if (req.file) {
+            const { originalname, path } = req.file;
+            const parts = originalname.split('.');
+            const ext = parts[parts.length - 1];
+            newPath = path + '.' + ext
+            fs.renameSync(path, newPath)
+        }
+        const decoded = await jwt.verify(token, process.env.SECRET_KEY);
+        console.log('decoded >> ',decoded)
+        const postDoc=await BlogModel.findById(id);
+        const isAuthor= JSON.stringify(postDoc.author)===JSON.stringify(decoded.userId);
+        if(!isAuthor){
+            return res.status(400).json('Invalid author!')
+        }
+        postDoc.title = title;
+        postDoc.summary = summary;
+        postDoc.content = content;
+        if (newPath) {
+            postDoc.cover = newPath;
+        }
+        await postDoc.save();
+        res.json(postDoc)
+    } catch (err) {
+        console.log(err.message);
+        res.status(400).json(err)
+    }
 })
 
 module.exports = BlogRouter;
