@@ -49,7 +49,7 @@ UserRouter.get('/profile',async(req,res)=>{
     console.log('token >> ', token)
     try{
         const decoded=await jwt.verify(token,process.env.SECRET_KEY);
-        console.log('decoded >> ',decoded)
+        // console.log('decoded >> ',decoded)
 res.json(decoded)
     }catch (err) {
         console.log(err.message);
