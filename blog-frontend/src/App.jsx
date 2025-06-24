@@ -9,6 +9,7 @@ import RegisterPage from './pages/RegisterPage'
 import UserContextProvider from './contexts/UserContext'
 import CreatePost from './pages/CreatePost'
 import PostPage from './pages/PostPage'
+import EditPostPage from './pages/EditPostPage'
 
 function App() {
   //    The index attribute makes this route the root (/) route.
@@ -22,6 +23,7 @@ function App() {
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/create' element={<CreatePost/>}/>
           <Route path='/post/:id' element={<PostPage/>}/>
+          <Route path='/edit/:id' element={<EditPostPage/>}/>
         </Route>
       </Routes>
     </UserContextProvider>
