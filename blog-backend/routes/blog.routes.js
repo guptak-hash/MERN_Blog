@@ -35,12 +35,14 @@ BlogRouter.post('/post', uploadMiddleware.single('file'), async (req, res) => {
 
 // get blogs
 BlogRouter.get('/post', async (req, res) => {
-    const { token } = req.cookies;
+    // const { token } = req.cookies;
     try {
-        const decoded = await jwt.verify(token, process.env.SECRET_KEY);
-        res.status(200).json(await BlogModel.find()
+        // const decoded = await jwt.verify(token, process.env.SECRET_KEY);
+        const blogs=await BlogModel.find()
             .populate('author', ['email'])
-            .sort({ createdAt: -1 }))
+            .sort({ createdAt: -1 });
+            // console.log('blogs >> ', blogs)
+        res.status(200).json(blogs)
     } catch (err) {
         console.log(err.message);
         res.status(400).json(err)
