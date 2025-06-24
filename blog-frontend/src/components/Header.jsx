@@ -1,11 +1,12 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { UserContext } from '../contexts/UserContext'
 
 function Header() {
   const { setUserInfo, userInfo } = useContext(UserContext)
-
+  const navigate = useNavigate();
+  // const [redirect, setRedirect] = useState(false)
   useEffect(() => {
     const fetchUserDetail = async () => {
       try {
@@ -19,23 +20,27 @@ function Header() {
         console.log(err)
       }
     }
-fetchUserDetail();
+    fetchUserDetail();
   }, [])
 
- 
-  function logout() {
-    fetch('http://localhost:8000/api/logout', {
+
+  async function logout() {
+    const response = await fetch('http://localhost:8000/api/logout', {
       method: 'POST',
       credentials: 'include'
     })
+    // if (response.ok) {
+    //   setRedirect(true)
+    // }
     setUserInfo(null)
+    navigate('/')
   }
-  // console.log('userInfo >> ', userInfo)
+  
   const username = userInfo?.email;
-
+  
   return (
     <header>
-      <Link to='/' className='logo'>MyBlog</Link>
+      <Link to='/' className='logo'>Blogmint</Link>
       <nav>
         {
           username && (

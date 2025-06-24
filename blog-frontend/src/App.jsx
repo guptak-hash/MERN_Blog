@@ -1,6 +1,4 @@
 import './App.css'
-import Posts from './components/Posts'
-import Header from './components/Header'
 import { Route, Routes } from 'react-router-dom'
 import Layout from './components/Layout'
 import HomePage from './pages/HomePage'
