@@ -35,7 +35,7 @@ function EditPostPage() {
         if (files?.[0]) {
             data.set('file', files[0])
         }
-        const response = await fetch('http://localhost:8000/api/post', {
+        const response = await fetch('https://mern-blog-backend-tixg.onrender.com/post', {
             method: 'PUT',
             body: data,
             credentials: 'include'
