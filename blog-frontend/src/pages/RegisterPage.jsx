@@ -1,5 +1,4 @@
-
-
+// blog-frontend\src\pages\RegisterPage.jsx
 import { useState } from "react";
 
 const RegisterPage = () => {

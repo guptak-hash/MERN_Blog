@@ -1,3 +1,4 @@
+// blog-backend\routes\blog.routes.js
 require('dotenv').config()
 const express = require('express');
 const multer = require('multer');

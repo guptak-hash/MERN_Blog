@@ -1,3 +1,4 @@
+// blog-frontend\src\pages\CreatePost.jsx
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import Editor from '../components/Editor';

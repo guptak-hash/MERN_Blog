@@ -1,3 +1,4 @@
+// blog-backend\routes\user.routes.js
 require('dotenv').config()
 const express = require('express');
 const UserModel = require('../models/user.model');
