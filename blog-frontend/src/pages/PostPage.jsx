@@ -44,7 +44,7 @@ function PostPage() {
     
             )}
             <div className="image">
-                <img src={`https://mern-blog-backend-tixg.onrender.com/uploads/${postInfo.cover}`} alt="" />
+                <img src={`https://mern-blog-backend-tixg.onrender.com/${postInfo.cover}`} alt="" />
             </div>
             <div dangerouslySetInnerHTML={{ __html: postInfo.content }} />
             
