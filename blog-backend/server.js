@@ -8,7 +8,9 @@ const BlogRouter = require('./routes/blog.routes');
 
 const app = express();
 
-app.use(cors({credentials:true,origin:'https://mern-blog-frontend-6gkr.onrender.com'}));
+app.use(cors({credentials: true,
+  origin: 'https://mern-blog-frontend-6gkr.onrender.com',
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],}));
 
 connectDB();
 
