@@ -8,7 +8,7 @@ function Posts({ _id,title, summary, cover, createdAt, author }) {
     <div className='post'>
       <div className='image'>
         <Link to={`/post/${_id}`}>
-          <img src={'https://mern-blog-backend-tixg.onrender.com/' + cover} alt='' />
+          <img src={'https://mern-blog-backend-tixg.onrender.com/uploads/' + cover} alt='' />
         </Link>
       </div>
       <div className='texts'>

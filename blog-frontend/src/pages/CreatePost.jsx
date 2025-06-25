@@ -16,7 +16,7 @@ async function createNewPost(e){
     data.set('summary',summary);
     data.set('content',content);
     data.set('file',files[0])
-    const response=await fetch('https://mern-blog-backend-tixg.onrender.com/post',{
+    const response=await fetch('https://mern-blog-backend-tixg.onrender.com/api/post',{
         method: 'POST',
         body: data,
         credentials: 'include'

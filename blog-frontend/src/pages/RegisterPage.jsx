@@ -19,7 +19,7 @@ const RegisterPage = () => {
       console.log('Registration successful:', { email, password });
       // Submit to backend here
       try {
-       const response= await fetch('http://localhost:8000/api/signup', {
+       const response= await fetch('https://mern-blog-backend-tixg.onrender.com/api/signup', {
           method: 'POST',
           body: JSON.stringify({ email, password }),
           headers: { 'Content-Type': 'application/json' }

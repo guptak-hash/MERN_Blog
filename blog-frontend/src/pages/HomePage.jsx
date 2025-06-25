@@ -5,7 +5,7 @@ import { useState } from 'react'
 const HomePage = () => {
  const [posts,setPosts]=useState([]);
  useEffect(()=>{
-  fetch('https://mern-blog-backend-tixg.onrender.com/post',{
+  fetch('https://mern-blog-backend-tixg.onrender.com/api/post',{
     credentials:'include'
   }).then(response=>{
     response.json().then(posts=>{

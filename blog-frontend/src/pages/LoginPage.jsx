@@ -17,7 +17,7 @@ const LoginPage = () => {
         if (isValidEmail && hasNoSpaces && isPasswordLongEnough) {
             // Submit to backend here
             try {
-                const response = await fetch('https://mern-blog-backend-tixg.onrender.com/login', {
+                const response = await fetch('https://mern-blog-backend-tixg.onrender.com/api/login', {
                     method: 'POST',
                     body: JSON.stringify({ email, password }),
                     headers: { 'Content-Type': 'application/json' },
