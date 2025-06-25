@@ -31,7 +31,7 @@ function PostPage() {
             <h1>{postInfo.title}</h1>
             <time>{formatISO9075(new Date(postInfo.createdAt))}</time>
             <div className="author">By {username}</div>
-            {userInfo?.userId === postInfo.author._id && (
+            {userInfo?.id === postInfo.author._id && (
         
                 <div className="edit-row">
                     <Link className="edit-btn" to={`/edit/${postInfo._id}`}>
