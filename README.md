@@ -9,19 +9,19 @@ A full-stack blog application with user authentication, CRUD operations, and ima
 - Responsive UI: Clean, user-friendly interface.
 
 🛠 Tech Stack
-## Frontend
-# React.js (Vite)
-# React Router v7
-# React Quill (Rich Text Editor)
-# date-fns (Date formatting)
-# CSS3
+Frontend
+React.js (Vite)
+React Router v7
+React Quill (Rich Text Editor)
+date-fns (Date formatting)
+CSS3
 
-## Backend
-# Node.js + Express
-# MongoDB (Mongoose)
-# JWT (Authentication)
-# Multer (File uploads)
-# Bcrypt (Password hashing)
+Backend
+Node.js + Express
+MongoDB (Mongoose)
+JWT (Authentication)
+Multer (File uploads)
+Bcrypt (Password hashing)
 
 🚀 Installation
 1. Backend Setup
